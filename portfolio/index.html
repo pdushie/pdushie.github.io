@@ -102,46 +102,14 @@
             }
         }
 
-
-        /* Scoped CSS to apply Bulma styles only to .cell elements */
-        .skills .grid .cell {
-            /* Add your existing inline styles here */
-            background-color: #4e546c;
-            padding: 9% 5em;
-            color: #000000;
+        .custom-div .grid {
+            /* Add Bulma styles only to elements inside .custom-div */
+            background-color: #00FF00; /* Green */
         }
-
-        /* Additional Bulma styles can be applied to .cell elements */
-        .skills .grid .cell.is-success {
-            background-color: #64f4ab; /* Green */
-        }
-
-        /* Custom styles for other elements within the .skills section */
-        .skills h1 {
-            padding: 20px 1.5em;
-            font-size: 36px;
-            color: white;
-        }
-
-        .skills p {
-            padding: 25px;
-            font-size: larger;
-            color: white;
-        }
-
-        .skills .cv-button {
-            padding: 16px;
-        }
-
+    
 
         
     </style>
-
-<link
-rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
->
-    
 
 
 
@@ -240,32 +208,21 @@ href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
     </div>
 
 
-
     <section class="skills">
         <div class="container">
-            <div class="content-section">
-                <p>--My Skills</p>
-                <div class="grid">
-                    <div class="cell notification is-success">HTML</div>
-                    <div class="cell notification is-success">CSS</div>
-                    <div class="cell notification is-success">Python</div>
-                    <div class="cell notification is-success">JavaScript</div>
-                    <div class="cell notification is-success">React</div>
-                    <div class="cell notification is-success">Git</div>
-                    <div class="cell notification is-success">Database Administration</div>
-                    <div class="cell notification is-success">AWS</div>
-                    <div class="cell notification is-success">Networking</div>
-                    <div class="cell notification is-success">Windows Server Administration</div>
-                    <div class="cell notification is-success">Linux Server Administration</div>
-                    <div class="cell notification is-success">Virtualization</div>
+            <div style="padding: 9% 5em;" class="content-section">
+                <p style="color: #64f4ab;">--My Skills</p>
+                <h1 style="padding:20px 1.5em; font-size: 36px;">Why Hire Me?</h1>
+                <p style="padding: 25px ; font-size: larger  ;">Learning is a never ending process. I am eager to learn
+                    and apply the knowledge gained to make a difference wherever I find myself. I bring onboard a unique
+                    mix of skills in networking, system administration, artificial intelligence and programming.
+                </p>
+
+
+                <div class="cv-button" style="padding: 26px;">
+                    <a href="https://drive.google.com/file/d/1AspzdldAw1vVolGNnaPBSBRlZFtHAUFK/view?usp=sharing" target="_blank">Download CV</a>
                 </div>
-            </div>
-            <h1>Why Hire Me?</h1>
-            <p>Learning is a never ending process. I am eager to learn and apply the knowledge gained to make a difference wherever I find myself. I bring onboard a unique mix of skills in networking, system administration, artificial intelligence and programming.</p>
-            <div class="cv-button">
-                <a href="https://drive.google.com/file/d/1AspzdldAw1vVolGNnaPBSBRlZFtHAUFK/view?usp=sharing" target="_blank">Download CV</a>
-            </div>
-        </div>
+            
     </section>
 
     <!-- skills details section  -->
