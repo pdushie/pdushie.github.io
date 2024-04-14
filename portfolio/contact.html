@@ -139,29 +139,43 @@
                 <div class="row input-container">
                     <div class="col-md-6 col-sm-12">
                         <div class="styled-input">
-                            <input  type="text" placeholder="Full Name" required />
-
+                            <input type="text" name="full-name" placeholder="Full Name" required />
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-12">
-                        <div class="styled-input" style="float:right;">
-                            <input type="text" placeholder="Email" required />
-
+                        <div class="styled-input">
+                            <input type="email" name="email" placeholder="Email" required />
                         </div>
                     </div>
                     <div class="col-xs-12">
                         <div class="styled-input wide">
-                            <textarea placeholder="message" required></textarea>
-
+                            <textarea name="message" placeholder="Message" required></textarea>
                         </div>
                     </div>
                     <div class="col-xs-12">
-                        <div class=" conbtn " style="width: fit-content;">Submit</div>
+                        <input type="submit" value="Submit" class="conbtn" onclick="submitForm()" />
                     </div>
                 </div>
             </div>
-
         </div>
+        
+        <script>
+            function submitForm() {
+                var fullName = document.getElementsByName("full-name")[0].value;
+                var email = document.getElementsByName("email")[0].value;
+                var message = document.getElementsByName("message")[0].value;
+        
+                // Construct the mailto URL
+                var mailtoLink = "mailto:philip.dushie@gmail.com"
+                    + "?subject=Contact Form Submission"
+                    + "&body=Full Name: " + fullName
+                    + "%0D%0AEmail: " + email
+                    + "%0D%0AMessage: " + message;
+        
+                // Open the user's email client with the pre-filled email
+                window.location.href = mailtoLink;
+            }
+        </script>
 
         <!-- Bootstrap JS CDN (place this at the end of the body) -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
