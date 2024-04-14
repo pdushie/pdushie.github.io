@@ -101,12 +101,20 @@
                 transform: translateY(0);
             }
         }
+        
+        .skills-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+            }
 
-        .custom-div .grid {
-            /* Add Bulma styles only to elements inside .custom-div */
-            background-color: #00FF00; /* Green */
-        }
-    
+        .cell {
+                padding: 10px;
+                border-radius: 5px;
+                background-color: #4caf50;
+                color: white;
+                text-align: center;
+            } 
 
         
     </style>
