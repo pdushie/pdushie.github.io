@@ -26,11 +26,11 @@ img {
 }
 
 input {
-    width: 40%;
+    width: 50%;
     height: 40px;
     margin: 10px;
     border: 2px rgb(169, 174, 179) solid;
-    border-radius: 20px;
+    border-radius: 15px;
     font-size: 20px;
     font-weight: bold;
 }
