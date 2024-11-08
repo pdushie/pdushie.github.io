@@ -1,0 +1,9 @@
+nav {
+    background-color: rgb(90, 85, 85);
+}
+
+nav a {
+    list-style-type: none;
+    text-decoration: none;
+    color: aliceblue;
+}
