@@ -72,6 +72,8 @@ function drawGrid(puzzleData) {
   resetButton.id = 'reset-puzzle';
   resetButton.innerHTML = 'Reset Puzzle';
 
+  const insertBreak = document.createElement('br');
+
   const table = document.createElement('table');
 
   puzzleData.rows.forEach((row, rowIndex) => {
@@ -99,6 +101,7 @@ function drawGrid(puzzleData) {
   container.appendChild(easyDifficulty);
   container.appendChild(mediumDifficulty);
   container.appendChild(hardDifficulty);
+  container.appendChild(insertBreak);
   container.appendChild(checkButton);
   container.appendChild(solveButton);
   container.appendChild(resetButton);

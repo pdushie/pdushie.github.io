@@ -15,3 +15,11 @@ td.fixed {
 td.error {
   outline: 2px solid red;
 }
+
+a {
+  margin-right: 5px;
+}
+
+button {
+  margin-right: 5px;
+}
