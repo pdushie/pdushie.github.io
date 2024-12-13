@@ -1,6 +1,6 @@
 // URL for API
-let apiUrl='https://prog2700.onrender.com/threeinarow/sample';
-let puzzleData; // Declare puzzleData globally
+let apiUrl = 'https://prog2700.onrender.com/threeinarow/sample'; // On load use the sample 6 X 6 grid
+let puzzleData; // Declare puzzleData globally. puzzleData holds the json file containing puzzle state
 let difficulty;
 
 // Fetch puzzle data from the API
@@ -10,70 +10,21 @@ async function fetchPuzzleData() {
   return data;
 }
 
-// Function to set difficulty
-function setDifficulty(difficulty) {
-  switch(difficulty) {
-    case 'easy':
-      apiUrl = 'https://prog2700.onrender.com/threeinarow/sample';
-      break;
-    case 'medium':
-      apiUrl = 'https://prog2700.onrender.com/threeinarow/10x10';
-      break;
-    case 'hard':
-      apiUrl = 'https://prog2700.onrender.com/threeinarow/14x14';
-      break
-
-  }
-  initializeGame();
-}
-
 // Main function to initialize the game
 async function initializeGame() {
-  puzzleData = await fetchPuzzleData(); // Fetch and set puzzleData
+  puzzleData = await fetchPuzzleData(); // Fetch and store puzzle state in puzzleData
   drawGrid(puzzleData);
   setupEventListeners();
 }
 
 // Draw the grid using the puzzle data
+//Reference: https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces
 function drawGrid(puzzleData) {
   const container = document.getElementById('theGame');
   container.innerHTML = ''; // Clear any existing content
-
-  const easyDifficulty = document.createElement('a');
-  easyDifficulty.innerHTML = 'Easy';
-  easyDifficulty.href='#';
-  easyDifficulty.id = 'easyOption';
-
-  const mediumDifficulty = document.createElement('a');
-  mediumDifficulty.innerHTML = 'Medium';
-  mediumDifficulty.href='#';
-  mediumDifficulty.id = 'mediumOption';
-
-  const hardDifficulty = document.createElement('a');
-  hardDifficulty.innerHTML = 'Hard';
-  hardDifficulty.href='#';
-  hardDifficulty.id = 'hardOption';
-
-
-  const checkButton = document.createElement('button');
-  checkButton.id = 'check-puzzle';
-  checkButton.innerHTML = 'Check';
-
-  const solveButton = document.createElement('button');
-  solveButton.id = 'solve-puzzle';
-  solveButton.innerHTML = 'Solve Puzzle';
-
-  const errorCheck = document.createElement('input');
-  errorCheck.type = 'checkbox';
-  errorCheck.id = 'show-errors';
-  errorCheck.innerHTML = 'Show Errors';
-
-  const resetButton = document.createElement('button');
-  resetButton.id = 'reset-puzzle';
-  resetButton.innerHTML = 'Reset Puzzle';
-
-  const insertBreak = document.createElement('br');
-
+  //Create headings, buttons and checkboxes
+  createElements();
+  // Create table element
   const table = document.createElement('table');
 
   puzzleData.rows.forEach((row, rowIndex) => {
@@ -98,16 +49,96 @@ function drawGrid(puzzleData) {
     table.appendChild(tr);
   });
 
-  container.appendChild(easyDifficulty);
-  container.appendChild(mediumDifficulty);
-  container.appendChild(hardDifficulty);
-  container.appendChild(insertBreak);
-  container.appendChild(checkButton);
-  container.appendChild(solveButton);
-  container.appendChild(resetButton);
-  container.appendChild(errorCheck);
-  
+  // append created elements to the div aka container
   container.appendChild(table);
+}
+
+function createElements() {
+  const container = document.getElementById('theGame');
+  // Create a div element to hold buttons
+  const buttonsDiv = document.createElement('div');
+  buttonsDiv.id = 'buttonsDiv';
+
+  // Create a div element to hold difficulty levels a tag
+  const difficultyDiv = document.createElement('div');
+  difficultyDiv.id = 'difficultyDiv';
+
+  // Create a tag elements for difficulty levels
+  const easyDifficulty = document.createElement('a');
+  easyDifficulty.innerHTML = 'Easy';
+  easyDifficulty.href = '#';
+  easyDifficulty.id = 'easyOption';
+
+  const mediumDifficulty = document.createElement('a');
+  mediumDifficulty.innerHTML = 'Medium';
+  mediumDifficulty.href = '#';
+  mediumDifficulty.id = 'mediumOption';
+
+  const hardDifficulty = document.createElement('a');
+  hardDifficulty.innerHTML = 'Hard';
+  hardDifficulty.href = '#';
+  hardDifficulty.id = 'hardOption';
+
+  // Create header
+  const puzzleHeader = document.createElement('h2');
+  puzzleHeader.innerHTML = 'Welcome to 3-In-A-Row Puzzle';
+
+  // Create buttons and checkboxes
+  const checkButton = document.createElement('button');
+  checkButton.id = 'check-puzzle';
+  checkButton.innerHTML = 'Check';
+
+  // Create label element
+  const checkboxLabel = document.createElement('label');
+  checkboxLabel.innerHTML = '<b>Error Display</b>';
+  checkboxLabel.htmlFor = 'show-errors';
+
+  const difficultyLabel = document.createElement('label');
+  difficultyLabel.innerHTML = '<b>Difficulty:</b> ';
+
+  const solveButton = document.createElement('button');
+  solveButton.id = 'solve-puzzle';
+  solveButton.innerHTML = 'Solve Puzzle';
+
+  const errorCheck = document.createElement('input');
+  errorCheck.type = 'checkbox';
+  errorCheck.id = 'show-errors';
+  errorCheck.innerHTML = 'Show Errors';
+
+  const resetButton = document.createElement('button');
+  resetButton.id = 'reset-puzzle';
+  resetButton.innerHTML = 'Reset Puzzle';
+
+  // Append created elements to "theGame" container
+  container.appendChild(puzzleHeader);
+  container.appendChild(difficultyDiv);
+  container.appendChild(buttonsDiv);
+  document.getElementById('difficultyDiv').appendChild(difficultyLabel).appendChild(easyDifficulty);
+  document.getElementById('difficultyDiv').appendChild(mediumDifficulty);
+  document.getElementById('difficultyDiv').appendChild(hardDifficulty);
+  document.getElementById('buttonsDiv').appendChild(checkButton);
+  document.getElementById('buttonsDiv').appendChild(solveButton);
+  document.getElementById('buttonsDiv').appendChild(resetButton);
+  document.getElementById('buttonsDiv').appendChild(checkboxLabel).appendChild(errorCheck);
+
+}
+
+// Function to set difficulty
+function setDifficulty(difficulty) {
+  switch (difficulty) {
+    case 'easy':
+      apiUrl = 'https://prog2700.onrender.com/threeinarow/6x6';
+      break;
+    case 'medium':
+      apiUrl = 'https://prog2700.onrender.com/threeinarow/10x10';
+      break;
+    case 'hard':
+      apiUrl = 'https://prog2700.onrender.com/threeinarow/14x14';
+      break
+
+  }
+  // Each time difficulty is set, reinitialize the game
+  initializeGame();
 }
 
 // Change square color based on state
@@ -131,7 +162,7 @@ function setupEventListeners() {
   cells.forEach(cell => {
     cell.addEventListener('click', () => {
       let state = parseInt(cell.dataset.state, 10);
-      state = (state + 1) % 3; // Cycle states from 0 -> 1 -> 2 -> back to 0
+      state = (state + 1) % 3; // Cycle states from 0 to 1 to 2 and back to 0
       cell.dataset.state = state;
       setColor(cell, state);
     });
@@ -151,13 +182,13 @@ function setupEventListeners() {
   document.getElementById('reset-puzzle').addEventListener('click', () => {
     resetPuzzle();
   });
-  document.getElementById('easyOption').addEventListener('click', ()=> {
+  document.getElementById('easyOption').addEventListener('click', () => {
     setDifficulty('easy');
   });
-  document.getElementById('mediumOption').addEventListener('click', ()=> {
+  document.getElementById('mediumOption').addEventListener('click', () => {
     setDifficulty('medium');
   });
-  document.getElementById('hardOption').addEventListener('click', ()=> {
+  document.getElementById('hardOption').addEventListener('click', () => {
     setDifficulty('hard');
   });
 }
@@ -187,12 +218,11 @@ function checkPuzzleStatus() {
   if (allCorrect) {
     alert('You did it!!');
   } else if (partiallyCorrect && !allFilled) {
-    alert('So far so good');
+    alert('Looks good, keep going');
   } else {
-    alert('Something is wrong');
+    alert('Oops, something does not look right');
   }
 }
-
 
 // Display errors based on checkbox status
 function displayErrors(showErrors) {
@@ -238,7 +268,5 @@ function resetPuzzle() {
   alert("Puzzle reset to initial state!");
 }
 
-// Set game difficulty
-setDifficulty();
 // Initialize game on page load
 initializeGame();
