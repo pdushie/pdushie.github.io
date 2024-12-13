@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" class="m-auto">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACME Creatives</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="main.js" defer></script>
+</head>
+
+<body class="text-gray-600">
+  <!-- <div class="fixed bottom-[3.5rem] right-[400px]">
+    <button id="myBtn" class="fixed float-right p-3 bg-zinc-600 hidden lg:block rounded-xl z-50"><a href="#top"
+        class="text-white">Home</a></button>
+  </div> -->
+  <div> <!--Navbar div-->
+    <!-- Main navigation container -->
+    <nav id="top"
+      class="relative flex w-full flex-nowrap items-center justify-between bg-zinc-50 py-2 text-neutral-500 shadow-dark-mild hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-700 lg:flex-wrap lg:justify-start lg:py-4">
+      <div class="flex w-full flex-wrap items-center justify-between px-3">
+        <div class="ms-2">
+          <a class="text-xl text-black dark:text-white uppercase" href="#">Acme Creatives</a>
+        </div>
+        <!--Burger icon for mobile view -->
+        <button
+          class="block border-0 bg-transparent px-2 text-black/50 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
+          type="button">
+          <!-- Burger icon -->
+          <span class="[&>svg]:w-7 [&>svg]:stroke-black/50 dark:[&>svg]:stroke-neutral-200">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" id="burger">
+              <path fill-rule="evenodd"
+                d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+                clip-rule="evenodd" />
+            </svg>
+          </span>
+        </button>
+
+        <!-- Collapsible navbar container -->
+        <div class="!visible mt-2 hidden flex-grow basis-[100%] items-center lg:mt-0 lg:!flex lg:basis-auto" id="menu">
+          <!-- Left links -->
+          <div class="list-style-none me-auto flex flex-col ps-0 lg:mt-1 lg:flex-row">
+            <!-- Services link -->
+            <div class="my-4 ps-2 lg:my-0 lg:pe-1 lg:ps-2">
+              <a class="text-black dark:text-white lg:px-2" aria-current="page" href="#services-section">Services</a>
+            </div>
+            <!-- Portfolio Highlights link -->
+            <div class="mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0">
+              <a class="p-0 text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2"
+                href="#portfolio-highlights">Portfolio Highlights</a>
+            </div>
+            <!-- Client testimonials link -->
+            <div class="mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0">
+              <a class="p-0 text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2"
+                href="#testimonials">Client Testimonials</a>
+            </div>
+
+          </div>
+          <!-- Left links -->
+        </div>
+        <!-- Collapsible wrapper -->
+      </div>
+    </nav>
+  </div>
+  <div class="hidden lg:flex justify-center flex-grow-0 flex-nowrap mb-5">
+    <canvas id="cw" class="h-[25rem] w-full"></canvas>
+    <div class="absolute w-auto">
+      <h1 class="text-gray-50 text-6xl font-bold uppercase leading-[25rem]">Welcome to Acme Creatives</h1>
+    </div>
+  </div>
+
+  <div class="px-10 lg:w-[90%] m-auto"> <!--Site Main Content Starts here-->
+
+    <main>
+
+      <div>
+        <section id="services-section" class="lg:min-h-screen align-middle">
+          <header>
+            <h2 class="text-gray-700 text-6xl font-semibold pt-20">Services</h2>
+          </header>
+          <div>
+            <h4 class="font-bold text-2xl mt-12 pb-2 border-b border-gray-200">What we do best</h4>
+          </div>
+
+          <div class="services-container swiper bg-zinc-50">
+            <div class="slider-wrapper">
+              <div class="swiper-wrapper">
+                <div class="mt-8 card swiper-slide">
+                  <!--Services related cards go here-->
+                  <div class="w-full max-w-screen-[400px] flex flex-col overflow-hidden" id="service1">
+                    <img src="./images/brand_planning.jpg" alt="brand planning" class="cover">
+                    <div class="m-4">
+                      <span class="cardlabel flex-grow">Brand Planning and Building</span><br>
+                      <span class="hidden flex-grow" id="service-info1">ACME Creatives helps you define, refine, and
+                        position your brand with strategic planning. We
+                        create a clear
+                        roadmap to ensure your brand stands out and thrives.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-8 card swiper-slide">
+                  <!--Portfolio related cards go here-->
+                  <div class="w-full max-w-screen-[400px] flex flex-col overflow-hidden" id="service2">
+                    <img src="./images/social_media_marketing.jpg" alt="brand planning" class="cover">
+                    <div class="m-4">
+                      <span class="cardlabel flex-grow">Social Media Marketing and Advertisement</span><br>
+                      <span id="service-info2" class="hidden flex-grow">Boost your brand’s visibility with ACME
+                        Creatives' expert social media marketing services.
+                        We
+                        craft tailored strategies to engage your audience and drive meaningful results.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-8 card swiper-slide">
+                  <!--Portfolio related cards go here-->
+                  <div class="w-full max-w-screen-[400px] flex flex-col overflow-hidden" id="service3">
+                    <img src="./images/marketing_strategy.jpg" alt="brand planning" class="cover">
+                    <div class="m-4">
+                      <span class="cardlabel flex-grow">Marketing Strategy and Growth Analysis</span><br>
+                      <span id="service-info3" class="hidden flex-grow">ACME Creatives designs data-driven marketing
+                        strategies that drive growth. We align your
+                        goals with targeted actions to maximize your brand’s impact.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-8 card swiper-slide">
+                  <!--Portfolio related cards go here-->
+                  <div class="w-full max-w-screen-[400px] flex flex-col overflow-hidden" id="service4">
+                    <img src="./images/seo.jpg" alt="Search Engine Optimization" class="cover">
+                    <div class="m-4">
+                      <span class="cardlabel flex-grow">Dynamic Search Engine Optimization</span><br>
+                      <span id="service-info4" class="hidden flex-grow">ACME Digital’s SEO service enhances online
+                        visibility and drives organic traffic by
+                        optimizing websites for search engines through targeted keyword strategies.
+
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-8 card swiper-slide">
+                  <!--Portfolio related cards go here-->
+                  <div class="w-full max-w-screen-[400px] flex flex-col overflow-hidden" id="service5">
+                    <img src="./images/influencer.jpg" alt="Influencer" class="cover">
+                    <div class="m-4">
+                      <span class="cardlabel flex-grow">Influencer Marketing Consultancy</span><br>
+                      <span id="service-info5" class="hidden flex-grow">ACME Digital’s Influencer Marketing service
+                        connects brands with the right influencers to
+                        amplify reach, engage audiences, and drive authentic growth through strategic collaborations.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-8 card swiper-slide">
+                  <!--Portfolio related cards go here-->
+                  <div class="w-full max-w-screen-[400px] flex flex-col overflow-hidden" id="service6">
+                    <img src="./images/web-analytics.jpg" alt="Web Analytics" class="cover">
+                    <div class="m-4">
+                      <span class="cardlabel flex-grow">Web Analytics and Data Analysis</span><br>
+                      <span id="service-info6" class="hidden flex-grow">ACME Digital’s Web Analytics and Data Analysis
+                        service provides actionable insights through
+                        detailed tracking, performance analysis, and optimization to drive better decision-making and
+                        ROI.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-8 card swiper-slide flex">
+                  <!--Portfolio related cards go here-->
+                  <div class="w-full max-w-screen-[400px] flex flex-col overflow-hidden" id="service7">
+                    <img src="./images/conversion-optimization.jpg" alt="brand planning" class="cover">
+                    <div class="m-4">
+                      <span class="cardlabel flex-grow">Conversion Rate Optimization</span><br>
+                      <span class="hidden flex-grow" id="service-info7">ACME Digital’s Conversion Rate Optimization
+                        service boosts online sales by optimizing user
+                        experiences and conducting data-driven A/B testing for higher conversions.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper-slide-button swiper-button-prev"></div>
+              <div class="swiper-slide-button swiper-button-next"></div>
+            </div>
+          </div>
+
+        </section>
+
+        <section id="portfolio-highlights" class="min-h-screen">
+          <header>
+            <h2 class="text-gray-700 text-6xl font-semibold pt-10">Portfolio Highlights</h2>
+          </header>
+          <div>
+            <h4 class="font-bold text-2xl mt-12 pb-2 border-b border-gray-200"> Our track record so far</h4>
+          </div>
+          <div class="portfolio-container swiper">
+            <div class="slider-wrapper">
+              <div class="swiper-wrapper card-container">
+                <div class="mt-8 card swiper-slide flex flex-row flex-wrap">
+                  <!--Portfolio related cards go here-->
+                  <div id="moreinfo1" class="w-full max-w-screen-[400px] flex flex-col overflow-hidden">
+                    <img src="./images/ecommercesite.jpg" alt="E-commerce" class="cover">
+                    <div class="m-4">
+                      <span class="cardlabel flex-grow">E-commerce for Luxe Apparel</span><br>
+                      <span id="details1" class="hidden flex-grow">We redesigned Luxe Apparel’s e-commerce website with
+                        a modern,
+                        mobile-first approach. The new
+                        design focused on improving the user experience and streamlining the checkout process.
+                        Implemented SEO strategies to improve organic search traffic and visibility.
+                        Conducted A/B testing on key product pages, leading to a 30% increase in conversion rate</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-8 card swiper-slide">
+                  <!--Portfolio related cards go here-->
+                  <div id="moreinfo2" class="w-full max-w-screen-[400px] flex flex-col overflow-hidden">
+                    <img src="./images/brandidentity.jpg" alt="Brand Identity" class="cover">
+                    <div class="m-4">
+                      <span class="cardlabel flex-grow">Brand Identity Creation for GreenTech</span><br>
+                      <span id="details2" class="hidden">ACME Creatives helped GreenTech develop a new brand
+                        identity that reflected their
+                        commitment to sustainability and cutting-edge technology.
+                        Designed a modern, minimalist logo and visual identity, including color schemes, typography, and
+                        brand guidelines.
+                        Launched a content marketing strategy, including social media management, to raise brand
+                        awareness
+                        and engage potential customers.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-8 card swiper-slide">
+                  <!--Portfolio related cards go here-->
+                  <div id="moreinfo3" class="w-full max-w-screen-[400px] flex flex-col overflow-hidden">
+                    <img src="./images/seoportfolio.jpg" alt="Search Engine Optimization" class="cover">
+                    <div class="m-4">
+                      <span class="cardlabel">SEO Campaign for The Gourmet Bakery</span><br>
+                      <span id="details3" class="hidden">Developed a Local SEO strategy to enhance the visibility of The
+                        Gourmet Bakery in local search
+                        results.
+                        Optimized their Google My Business profile and implemented on-page SEO for local keywords,
+                        helping
+                        them rank higher for search terms like “best bakery in Halifax.”
+                        Created localized content and blog posts to target local customers and promote seasonal offers.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-8 card swiper-slide">
+                  <!--Portfolio related cards go here-->
+                  <div id="moreinfo4" class="w-full max-w-screen-[400px] flex flex-col overflow-hidden">
+                    <img src="./images/socialmediacampaign.jpg" alt="Social Media Campaign" class="cover">
+                    <div class="m-4">
+                      <span class="cardlabel">Social Media Campaign for UrbanFit Gym</span><br>
+                      <span id="details4" class="hidden">Developed a 3-month social media campaign to grow UrbanFit
+                        Gym's online presence and membership sign-ups.
+                        Partnered with local fitness influencers to create engaging content around fitness challenges
+                        and classes.
+                        Ran Facebook and Instagram ads targeting gym enthusiasts in the local area, increasing
+                        membership inquiries by 40%.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-8 card swiper-slide">
+                  <!--Portfolio related cards go here-->
+                  <div id="moreinfo5" class="w-full max-w-screen-[400px] flex flex-col overflow-hidden">
+                    <img src="./images/webdev.jpg" alt="Website Development" class="cover">
+                    <div class="m-4">
+                      <span class="cardlabel">Website Development for Artisan Jewelry</span><br>
+                      <span id="details5" class="hidden">Created a custom WordPress site with WooCommerce integration to
+                        allow the client to sell their handmade jewelry online.
+                        Focused on high-quality imagery and detailed product descriptions to highlight the craftsmanship
+                        behind each piece.
+                        Implemented SEO strategies to target keywords like “handmade jewelry” and “artisan necklaces,”
+                        helping the site rank organically.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-8 card swiper-slide">
+                  <!--Portfolio related cards go here-->
+                  <div id="moreinfo6" class="w-full max-w-screen-[400px] flex flex-col overflow-hidden">
+                    <img src="./images/emailmarketing.jpg" alt="Email marketing" class="cover">
+                    <div class="m-4">
+                      <span class="cardlabel">Email Marketing for Bright Ideas Marketing</span><br>
+                      <span id="details6" class="hidden">Set up an automated email campaign to nurture leads and convert
+                        them into clients for Bright Ideas Marketing.
+                        Designed engaging email templates that reflected the brand's personality and effectively
+                        communicated their services.
+                        Increased open rates by 25% and improved client conversion rates by implementing targeted email
+                        sequences.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper-slide-button swiper-button-prev"></div>
+              <div class="swiper-slide-button swiper-button-next"></div>
+            </div>
+
+        </section>
+
+        <section id="testimonials">
+          <header>
+            <h2 class="text-gray-700 text-6xl font-semibold mb-5">Client Testimonials</h2>
+          </header>
+          <div class="mb-5 border rounded-lg bg-slate-50 flex flex-col items-center">
+            <h4 class="text-center font-bold mt-12 text-2xl pb-5">Find some testimonials about Acme Creatives</h4>
+            <div class="w-[90%] pb-[50px]">
+              <div class="mt-8">
+                <!--Testimonial related cards go here-->
+                <div class="flex flex-col items-center md:items-start md:flex-row testimonial-card">
+                  <img src="./images/janedoe.jpg" alt="brand planning" class="testimonial-pics">
+                  <div class="mt-10">
+                    <span class="client-name">Jane Doe</span><br>
+                    <span class="client-title mb-10">Chief Cook The Gourmet Bakery</span>
+                    <div class="mt-10">
+                      <span>"ACME Creatives delivered exactly what we needed to grow our business locally. Their local
+                        SEO
+                        strategy brought us to the top of search results, making us the go-to bakery in town. They also
+                        revamped our website, making it easier for customers to find our menu, place orders, and learn
+                        about
+                        our story. We’ve seen a huge increase in both online orders and foot traffic, and we couldn’t be
+                        more pleased with their work."</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-8">
+                <!--Portfolio related cards go here-->
+                <div class="flex flex-col items-center md:items-start md:flex-row testimonial-card">
+                  <img src="./images/michaelsmith.jpg" alt="brand planning" class="testimonial-pics">
+                  <div class="mt-10">
+                    <span class="client-name">Michael Smith</span><br>
+                    <span class="client-title mb-5">Founder ACME Inc.</span>
+                    <div class="mt-10">
+                      <span>"ACME Creatives helped us redefine our brand identity in a way that truly reflects our
+                        commitment to sustainability and innovation. From designing a modern logo to crafting a cohesive
+                        brand strategy, they understood exactly what we needed. Their team also helped us with a content
+                        marketing plan that has boosted our online engagement and brand awareness. We're excited to
+                        continue
+                        working with them!"</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-8">
+                <!--Portfolio related cards go here-->
+                <div class="flex flex-col items-center md:items-start md:flex-row testimonial-card">
+                  <img src="./images/brucewilliams.jpg" alt="brand planning" class="testimonial-pics">
+                  <div class="mt-10">
+                    <span class="client-name">Bruce Williams</span><br>
+                    <span class="client-title mb-5">CEO UrbanFit Gym</span>
+                    <div class="mt-10">
+                      <span class="mb-40">Working with ACME Creatives has been an absolute game-changer for our online
+                        presence. Their
+                        team completely transformed our e-commerce website, making it not only more user-friendly but
+                        also
+                        more visually appealing. Thanks to their SEO expertise, we’ve seen a significant increase in
+                        organic
+                        traffic, and our conversion rate has gone up by 30%. We couldn't be happier with the
+                        results!"</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+      </div>
+    </main>
+
+
+
+    <!-- Back to top button -->
+    <button type="button" data-twe-ripple-init data-twe-ripple-color="light"
+      class="!fixed bottom-5 end-5 hidden rounded-full bg-red-600 p-3 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg"
+      id="btn-back-to-top">
+      <span class="[&>svg]:w-4">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
+        </svg>
+      </span>
+    </button>
+
+    <!--Linking custome built script-->
+    <!--Linking Swiper JS script-->
+    <script type="module" src="slider.js"></script>
+    <!-- <footer class="bg-gray-800 text-white p-4 flex flex-row justify-center w-full"> -->
+    
+  </div>
+
+  <footer class="bg-gray-800 text-white p-4 flex flex-row justify-center w-auto">
+    <p>
+      ACME Creatives &copy; <span id="getDate"></span>
+    </p>
+  </footer>
+</body>
+
+</html>
